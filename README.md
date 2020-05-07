@@ -2,7 +2,6 @@
 
 ### Info
 
-- https://leetcode.com/
 - Run with `go run .` or `air`
 
 ## Problems
