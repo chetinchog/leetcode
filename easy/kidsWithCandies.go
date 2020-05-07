@@ -1,6 +1,6 @@
 package easy
 
-//KidsWithCandies (candies []int, extraCandies int) []bool
+//KidsWithCandies - Runetime: 0 ms - Memory: 2.3 MB
 func KidsWithCandies(candies []int, extraCandies int) []bool {
 	r := []bool{}
 	for _, v := range candies {
