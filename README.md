@@ -1,3 +1,3 @@
 ## LeetCode GO
 
-Run with `air`
+Run with `go run .` or `air`
