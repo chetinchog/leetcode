@@ -1,14 +1,15 @@
 # LeetCode GO
 
-## Info
+### Info
+
+- https://leetcode.com/
+- Run with `go run .` or `air`
+
+## Problems
 
 - https://leetcode.com/problemset/all/
 
-## Run
-
-- Run with `go run .` or `air`
-
-## Easy
+#### Easy
 
 1. Two Sum
 - Runetime: 20 ms --> 33%
@@ -22,3 +23,7 @@
 1431. Kids With the Greatest Number of Candies
 - Runetime: 0 ms
 - Memory: 2.3 MB
+
+#### Medium
+
+#### Hard
