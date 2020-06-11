@@ -3,19 +3,33 @@ package main
 import (
 	"fmt"
 	"time"
-
-	"github.com/chetinchog/leetcode-go/easy"
 )
+
+func test(s string, n int64) int64 {
+	l := len(s)
+	cA := countA(s)
+	N := int(n)
+	cR := N / l
+	rL := N - cR*l
+	rcA := countA(s[:rL])
+	cRcA := cR * cA
+	return int64(cRcA + rcA)
+}
+
+func countA(s string) int {
+	r := make(map[rune]int)
+	for _, v := range s {
+		r[v]++
+	}
+	return r['a']
+}
 
 func main() {
 	fmt.Println("Working...")
 	start := time.Now()
 	loops := 1
 	for i := 0; i < loops; i++ {
-		// r := easy.KidsWithCandies([]int{2, 3, 5, 1, 3}, 3)
-		// r := easy.NumberOfSteps(123)
-		// r := easy.NumJewelsInStones("aA", "aAAbbbb")
-		r := easy.TwoSum([]int{2, 7, 11, 2, 7, 11, 15}, 26)
+		r := test("abca", 11)
 		if (i + 1) == loops {
 			fmt.Println("Result:", r)
 		}
