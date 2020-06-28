@@ -2,46 +2,116 @@ package main
 
 import (
 	"fmt"
+	"math"
 	"time"
 )
 
-func algorithm(arr []int32) int32 {
-	B := 0
-	L := len(arr)
-	Q := make(map[int32]int)
-	for i, v := range arr {
-		Q[v] = i
-	}
-	for i := 0; i < L-1; i++ {
-		correctValue := i + 1
-		position := Q[int32(correctValue)]
-		if i != position {
-			B++
-			Q[arr[i]], Q[arr[position]] = Q[arr[position]], Q[arr[i]]
-			arr[i], arr[position] = arr[position], arr[i]
+// Alg for Hackerrank Array Manipulation
+func Alg(n int32, queries [][]int32) int64 {
+	var max int64 = 0
+	arr := make([]int64, n)
+	for _, op := range queries {
+		for i := op[0] - 1; int32(i) < op[1]; i++ {
+			arr[i] += int64(op[2])
 		}
 	}
-	return int32(B)
+	for _, v := range arr {
+		if v > max {
+			max = v
+		}
+	}
+	return max
+}
+
+// Alg2 for Hackerrank Array Manipulation
+func Alg2(n int32, queries [][]int32) int64 {
+	var max int64 = 0
+	arr := make([]int64, n+2)
+	for _, op := range queries {
+		k := int64(op[2])
+		arr[op[0]] += k
+		arr[op[1]+1] -= k
+	}
+	var count int64
+	for _, v := range arr {
+		count += v
+		if count > max {
+			max = count
+		}
+	}
+	return max
+}
+
+func m35(n int32) {
+	for i := 0; i <= int(n); i++ {
+		mo3 := i%3 == 0
+		mo5 := i%5 == 0
+		switch true {
+		case mo3 && mo5:
+			fmt.Println("FizzBuzz")
+			break
+		case mo3:
+			fmt.Println("Fizz")
+			break
+		case mo5:
+			fmt.Println("Buzz")
+			break
+		default:
+			fmt.Println(i)
+			break
+		}
+	}
 }
 
 func main() {
 	fmt.Println("Working...")
+
 	fmt.Println()
 	loops := 1
 
-	var data []int32
-	for i := 1000000; i > 0; i-- {
-		data = append(data, int32(i))
+	data := make([][]int32, 0)
+	n := int(math.Pow(10, 7))
+	m := int(2 * math.Pow(10, 5))
+	for i := 1; i <= m; i++ {
+		// a := int32(rand.Float64() * float64(n))
+		// b := int32(float64(a) + rand.Float64()*float64(n-int(a)))
+		a := int32(1)
+		b := int32(n)
+		k := int32(math.Pow(10, 9))
+		data = append(data, []int32{a, b, k})
 	}
+	data2 := make([][]int32, len(data))
+	copy(data2, data)
+	// L := 100000
+	// start := time.Now()
+	// for i := 0; i < loops; i++ {
+	// 	r := Alg(int32(n), data[:L])
+	// 	if (i + 1) == loops {
+	// 		fmt.Println("Result:", r)
+	// 	}
+	// }
+	// t := time.Now()
+	// fmt.Printf("Done in %s!\n\n", t.Sub(start))
 
-	start := time.Now()
+	start2 := time.Now()
 	for i := 0; i < loops; i++ {
-		r := algorithm([]int32{4, 3, 1, 2})
+		r := Alg2(int32(10), [][]int32{[]int32{1, 5, 3}, []int32{4, 8, 7}, []int32{6, 9, 1}})
 		if (i + 1) == loops {
 			fmt.Println("Result:", r)
 		}
 	}
-	t := time.Now()
-	elapsed := t.Sub(start)
-	fmt.Printf("Done in %s!\n\n", elapsed)
+	// for i := 0; i < loops; i++ {
+	// 	r := Alg2(int32(n), data)
+	// 	if (i + 1) == loops {
+	// 		fmt.Println("Result:", r)
+	// 	}
+	// }
+	// for i := 0; i < loops; i++ {
+	// 	r := Alg2(int32(10), [][]int32{[]int32{1, 5, 3}, []int32{4, 8, 7}, []int32{6, 9, 1}})
+	// 	if (i + 1) == loops {
+	// 		fmt.Println("Result:", r)
+	// 	}
+	// }
+	t2 := time.Now()
+	fmt.Printf("Done in %s!\n\n", t2.Sub(start2))
 }
