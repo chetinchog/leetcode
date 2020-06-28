@@ -1,7 +1,12 @@
 package hackerrank
 
-// SherlockAndAnagrams : For each query, return the number of unordered anagrammatic pairs.
+/*
+ *  It must return an integer that represents the number of anagrammatic pairs of substrings in s.
+ */
+
+// SherlockAndAnagrams return number of anagrammatic pairs of substrings.
 func SherlockAndAnagrams(s string) int32 {
-	var cant int32
-	return cant
+	var number int32
+
+	return number
 }
