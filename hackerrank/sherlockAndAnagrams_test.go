@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-func test(t *testing.T, dataS string, expected int) {
+func testSaA(t *testing.T, dataS string, expected int) {
 	result := SherlockAndAnagrams(dataS)
 	if result != int32(expected) {
 		fmt.Println()
@@ -13,27 +13,27 @@ func test(t *testing.T, dataS string, expected int) {
 	}
 }
 
-func TestSherlockAndAnagrams_abba(t *testing.T) {
-	fmt.Println("TestSherlockAndAnagrams (abba)")
-	test(t, "abba", 4)
-}
+// func TestSherlockAndAnagrams_abba(t *testing.T) {
+// 	fmt.Println("TestSherlockAndAnagrams (abba)")
+// 	testSaA(t, "abba", 4)
+// }
 
-func TestSherlockAndAnagrams_abcd(t *testing.T) {
-	fmt.Println("TestSherlockAndAnagrams (abcd)")
-	test(t, "abcd", 0)
-}
+// func TestSherlockAndAnagrams_abcd(t *testing.T) {
+// 	fmt.Println("TestSherlockAndAnagrams (abcd)")
+// 	testSaA(t, "abcd", 0)
+// }
 
-func TestSherlockAndAnagrams_ifailuhkqq(t *testing.T) {
-	fmt.Println("TestSherlockAndAnagrams (ifailuhkqq)")
-	test(t, "ifailuhkqq", 3)
-}
+// func TestSherlockAndAnagrams_ifailuhkqq(t *testing.T) {
+// 	fmt.Println("TestSherlockAndAnagrams (ifailuhkqq)")
+// 	testSaA(t, "ifailuhkqq", 3)
+// }
 
-func TestSherlockAndAnagrams_kkkk(t *testing.T) {
-	fmt.Println("TestSherlockAndAnagrams (kkkk)")
-	test(t, "kkkk", 10)
-}
+// func TestSherlockAndAnagrams_kkkk(t *testing.T) {
+// 	fmt.Println("TestSherlockAndAnagrams (kkkk)")
+// 	testSaA(t, "kkkk", 10)
+// }
 
-func TestSherlockAndAnagrams_cdcd(t *testing.T) {
-	fmt.Println("TestSherlockAndAnagrams (cdcd)")
-	test(t, "cdcd", 10)
-}
+// func TestSherlockAndAnagrams_cdcd(t *testing.T) {
+// 	fmt.Println("TestSherlockAndAnagrams (cdcd)")
+// 	testSaA(t, "cdcd", 10)
+// }
